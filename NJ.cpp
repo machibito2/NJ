@@ -353,16 +353,16 @@ void NeighborJoining(vector <vector<double> > &data, map <int, string> &numberTo
 	{
 		if (numberToName[1].find("node") != string::npos)	//found
 		{
-			tm.mergeTree(numberToName[0], data[dres.first][dres.second], numberToName[1], data[dres.first][dres.second], "end");
+			tm.mergeTree(numberToName[0], (data[dres.first][dres.second] + r[dres.first] - r[dres.second])/2, numberToName[1], data[dres.first][dres.second] - ((data[dres.first][dres.second] + r[dres.first] - r[dres.second])/2), "end");
 		}
 		else	// not found
 		{
-			tm.mergeTree(numberToName[0], 0, numberToName[1], data[dres.first][dres.second], numberToName[0]);
+			tm.mergeTree(numberToName[0], 0, numberToName[1], (data[dres.first][dres.second] + r[dres.first] - r[dres.second])/2, numberToName[0]);
 		}
 	}
 	else	//not found
 	{
-		tm.mergeTree(numberToName[0], data[dres.first][dres.second], numberToName[1], 0, numberToName[1]);
+		tm.mergeTree(numberToName[0], (data[dres.first][dres.second] + r[dres.first] - r[dres.second])/2, numberToName[1], 0, numberToName[1]);
 	}
 }
 
